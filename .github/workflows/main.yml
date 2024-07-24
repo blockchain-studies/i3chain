@@ -1,0 +1,15 @@
+name: CI & Building 
+
+on:
+  push:
+    branches:
+      - main
+      - release/*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and test
+        run: ./gradlew clean build
